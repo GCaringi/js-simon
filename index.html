@@ -13,22 +13,27 @@
         <!-- Css File -->
         <link rel="stylesheet" href="./css/style.css">
         <!-- /Css File -->
-        <title></title>
+        <title>Simon Says</title>
     </head>
     <body>
 
 
         <main class = "vh-100 d-flex align-items-center">
             <div class="container">
-                <div class="row text-center">
+                <div class="row text-center align-items-center">
                     <div id = "target-number" class="col-12 col-md-6 d-flex justify-content-center">
                         <div id="rnd-num" class= "">
 
                         </div>
                     </div>
                     <div class="col-12 col-md-6 d-flex justify-content-center">
-                        <div id="input-text" class= "">
-                            <!-- Inserisco un imput text -->
+                        <div id="input-area" class= "">
+                            <label for="solution">Insert numbers (blank-space with)</label>
+                            <input type="text" name="solution" id="mychoice">
+                            <button id = "btn" class="btn_cs">Submit</button>
+                        </div>
+                        <div id="result">
+
                         </div>
                     </div>
                 </div>

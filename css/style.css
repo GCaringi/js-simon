@@ -1,12 +1,32 @@
+body{
+    background: #CE5937;
+    background: -moz-linear-gradient(-45deg, #CE5937 0%, #1C6EA4 72%, #C59237 100%);
+    background: -webkit-linear-gradient(-45deg, #CE5937 0%, #1C6EA4 72%, #C59237 100%);
+    background: linear-gradient(135deg, #CE5937 0%, #1C6EA4 72%, #C59237 100%);;
+}
+
+label{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+input{
+    width: 80%;
+    margin-bottom: 10px;
+}
+
 .number{
-    font-size: 42px;
+    font-size: 9vmin;
     font-weight: 900;
-    width: 100px;
-    height: 100px;
-    background-color: green;
-    line-height: 100px;
+    padding: 0px 15px;
 }
 
 #rnd-num{
     display: flex;
+}
+
+#input-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
