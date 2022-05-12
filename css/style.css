@@ -23,10 +23,24 @@ input{
 
 #rnd-num{
     display: flex;
+    opacity: 1;
+    transition: opacity 0.3s;
 }
 
 #input-area{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
+}
+
+
+#loading{
+    display: flex;
+    font-size: 9vmin;
+    font-weight: 900;
+}
+
+#result{
+    font-size: 9vmin;
+    font-weight: 900;
 }

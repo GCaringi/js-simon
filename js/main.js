@@ -47,8 +47,6 @@ function strToNumArr(str){
     return newArray;
 }
 
-
-
 /*--------------------
      DOM Function
 --------------------*/
@@ -69,23 +67,34 @@ const rndNumber = document.getElementById("rnd-num");
 const resultZone = document.getElementById("result");
 const submit = document.getElementById("btn");
 const form = document.getElementById("input-area");
-let newArr = generateRandomArr(5);
+const load = document.getElementById("loading");
+
+let newArr = generateRandomArr(size);
 
 console.log(newArr); // FOR DEBUG
 
-printNumber(rndNumber, 5);
+printNumber(rndNumber, size);
 
 setTimeout(function(){
-    rndNumber.style.display = "none";
-    console.log("sono passati 2s");
+    // rndNumber.style.display = "none";
+    rndNumber.style.opacity = "0";
+    load.style.display = "none";
+    form.style.display = "flex",
     submit.addEventListener("click", 
         function(){
             let res = strToNumArr(document.getElementById("mychoice").value);
+            let listNum = document.getElementsByClassName("number");
+            for (let i = 0; i < listNum.length; i++){
+                listNum[i].style.color = "red";
+            }
             for (let i = 0; i < res.length; i++){
                 if (newArr.includes(res[i])){
                     point++;
+                    let index = newArr.indexOf(res[i]);
+                    listNum[index].style.color = "green";
                 }
             }
+            rndNumber.style.opacity = "1";
             if (point === newArr.length){
                 console.log("Hai vinto");
                 form.style.display = "none";
@@ -102,10 +111,9 @@ setTimeout(function(){
                 resultZone.innerText = "You lose!";
             }
             setTimeout(function(){
-                console.log("Sto ricaricando");
                 window.location.reload();
-            },2000);
+            },3000);
         }
     )
-}, 2000);
+}, 30000);
 
