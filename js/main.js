@@ -1,13 +1,22 @@
 /*--------------------
    Global Variable
 --------------------*/
-let size = 0;
+let size = 5;
+let point = 0;
 
 
 
 /*--------------------
   Logic Function
 --------------------*/
+function numIntegerPrompt(){
+    let num;
+    do{
+        num = Number(prompt("Inserisci un numero"))
+    }while(isNaN(num) || !Number.isInteger(num));
+    return num;
+}
+
 
 function generateRandomNum(min, max){
     return Math.floor((Math.random() * (max - min))+min);
@@ -29,6 +38,8 @@ function isInArray(num, arr){
     }
 }
 
+
+
 /*--------------------
      DOM Function
 --------------------*/
@@ -46,13 +57,27 @@ function printNumber(section, size){
 --------------------*/
 
 const rndNumber = document.getElementById("rnd-num");
+const text = document.getElementById("input-text");
 let newArr = generateRandomArr(5);
-console.log(newArr);
+
+console.log(newArr); // FOR DEBUG
 
 printNumber(rndNumber, 5);
 
 setTimeout(function(){
     rndNumber.style.display = "none";
-    console.log("Sono passati 3 secondi");
+    setTimeout(function(){
+        for (let i = 0; i < size; i++){
+            let numChooice = numIntegerPrompt();
+            if (isInArray(numChooice, newArr)){
+                point++;
+            }
+        }
+        if (point === size){
+            text.innerText = "Hai vinto"
+        }else{
+            text.innerText = "Hai perso"
+        }
+    },100);
 }, 3000);
 
